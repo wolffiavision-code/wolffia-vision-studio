@@ -1,8 +1,8 @@
 {
   "version": "3.1.1-practice",
-  "published": false,
-  "download_url": null,
-  "source_url": null,
+  "published": ture,
+  "download_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/v3.1.1-practice/WolffiaVisionStudio-3.1.1-Practice-Windows-x64-Setup.exe",
+  "source_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/v3.1.1-practice/WolffiaVisionStudio-3.1.1-Source.zip",
   "size_bytes": 1946400973,
   "sha256": "ca997a391147fa04747c256737abb7c916c1ead8a174102e64ceff4aecd7c48b",
   "verification": "Development-PC EXE self-test passed; clean-PC test pending",
