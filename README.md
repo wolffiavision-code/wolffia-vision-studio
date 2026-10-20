@@ -26,7 +26,7 @@ Windows の保護警告について
 3. Nで新規作成の切替、DeleteまたはBackspaceで削除。マスクはEでブラシ／消しゴム、Hで表示／非表示。補助ラベリングの結果は確認してからエクスポートします。
 4. 前処理でtrain/val/testを分割します。学習の「準備済み」はdata.yamlとimages/labels（またはmasks）を含む親フォルダです。未分割のアノテーション保存先は学習データセットではありません。
 5. 個別形式では学習画像、学習ラベル／マスク、検証画像、検証ラベル／マスク、クラス定義data.yamlを指定します。元データはコピーされます。
-6. 学習中は毎エポックの検証混同行列を表示します。GTは行、推定は列。学習集合の混同行列ではありません。テストでは比較画像・混同行列・8指標を表示。errorは処理失敗枚数です。マスクは画素単位でWC=0です。
+6. 学習中は毎エポックの検証混同行列を表示します。GTは行、推定は列。各行を0〜1へ正規化し、小数点以下2桁で中央表示します。テストでは比較画像・同形式の混同行列・8指標を表示します。errorは誤判定率 `(FP+FN+WC)/(TP+FP+FN+WC)` です。処理失敗は別のエラー詳細に記録します。マスクは画素単位でWC=0です。
 
 ## 保存先
 
@@ -34,14 +34,16 @@ Windows の保護警告について
 output/
   annotations/             BBOX_annotation_* / Mask_annotation_*
   datasets/                dataset_*
-  training/                yolo_finetune_* / segmentation runs
-  run_YYYYMMDD_HHMMSS_*/
+  training/                yolo_finetune_* / segmentation_finetune_*
+    <finetune>/            weights / data.yaml / training_console.log / test_*
+  practice/
+   run_YYYYMMDD_HHMMSS_*/
     input_jpg_trans/
     01_yolo/               predicted / comparisons / details / CSV
     02_crops/
     03_segmentation/        original_seg / normalize
     04_features&analysis/  features / population / sorting
-  continuous_YYYYMMDD_HHMMSS_*/
+   continuous_YYYYMMDD_HHMMSS_*/
     01_yolo/               predicted / comparisons / annotated.mp4 / CSV
 default_models/
   yolo/best.pt
@@ -50,11 +52,11 @@ default_models/
 
 ```
 
-切り抜き余白は初期値0%。テスト保存先の初期値は選択チェックポイントの親フォルダです。任意の保存先へ変更できます。用語辞書はconfig/dictionaries/ja.jsonとen.json、共通数値はdefaults.jsonにあります。
+切り抜き余白は初期値0%。weights内のチェックポイントを選んだ場合、テスト保存先はその外側のfinetuneフォルダです。任意の保存先へ変更できます。HOMEの「用語・索引」は別ウィンドウで開きます。分別条件と拡張した作図機能もGUIから設定できます。
 
 ## 教師画像申請
 
-[設定手順](FORM_SETUP_JA.md)。フォームURLは所有者が設定します。受付が未設定の状態を受付済みと表示しません。
+[設定手順](FORM_SETUP_JA.md)。回答者用GoogleフォームURLは設定済みです。所有者はGoogle Forms側の公開・受付・通知を確認してください。
 
 ## 確認範囲・注意
 

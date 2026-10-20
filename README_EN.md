@@ -21,7 +21,7 @@ Reference: https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/sma
 
 Select a workspace on HOME, then YOLO or Mask. Click a rectangle to select its list item; double-click an item to change only that rectangle's class. N toggles new annotation; Delete/Backspace removes selection; E toggles mask eraser and H toggles visibility. Review assisted labels before export.
 Use preprocessing to split train/val/test. For prepared training input, select the parent containing data.yaml and images/labels or masks. An unsplit annotation export is not a prepared training dataset. Separate input shows four train/validation image and label/mask folders plus class definition data.yaml. Source files are copied.
-Training displays a validation confusion matrix every epoch (GT rows / prediction columns), not a training-set matrix. Testing shows comparisons, a matrix, TP/FP/FN/WC, precision, recall, F1 and processing error count. Binary masks count pixels and have WC=0.
+Training displays a validation confusion matrix every epoch (GT rows / prediction columns), not a training-set matrix. Matrix rows are normalized to 0–1 and centered with two decimals. Testing shows comparisons, the same matrix format, TP/FP/FN/WC, precision, recall, F1 and error rate. Error rate is `(FP+FN+WC)/(TP+FP+FN+WC)`; processing failures are reported separately. Binary masks count pixels and have WC=0.
 
 ## Output layout
 
@@ -29,14 +29,16 @@ Training displays a validation confusion matrix every epoch (GT rows / predictio
 output/
   annotations/             BBOX_annotation_* / Mask_annotation_*
   datasets/                dataset_*
-  training/                yolo_finetune_* / segmentation runs
-  run_YYYYMMDD_HHMMSS_*/
+  training/                yolo_finetune_* / segmentation_finetune_*
+    <finetune>/            weights / data.yaml / training_console.log / test_*
+  practice/
+   run_YYYYMMDD_HHMMSS_*/
     input_jpg_trans/
     01_yolo/               predicted / comparisons / details / CSV
     02_crops/
     03_segmentation/        original_seg / normalize
     04_features&analysis/  features / population / sorting
-  continuous_YYYYMMDD_HHMMSS_*/
+   continuous_YYYYMMDD_HHMMSS_*/
     01_yolo/               predicted / comparisons / annotated.mp4 / CSV
 default_models/
   yolo/best.pt
@@ -45,7 +47,7 @@ default_models/
 
 ```
 
-Crop margin defaults to 0%. Test output defaults to the selected checkpoint's parent folder. Manual output selection remains available. Bilingual terminology and numerical dictionaries are in config/dictionaries.
+Crop margin defaults to 0%. For checkpoints inside weights, test output defaults to the enclosing fine-tune folder. Manual output selection remains available. HOME opens a searchable Terms and index window. Clustering settings and expanded chart controls are available in the GUI.
 
-[Dataset form setup](FORM_SETUP_EN.md). The owner must configure a responder URL. See the bundled verification record for tested scope. Independent clean-PC testing, all Windows/GPU combinations, elimination of protection warnings and downloading 1.0.0 from the public site remain unverified. Models and images have separate redistribution terms.
+[Dataset form setup](FORM_SETUP_EN.md). The responder URL is configured; the owner must verify publication, response collection and notifications in Google Forms. See the bundled verification record for tested scope. Independent clean-PC testing, all Windows/GPU combinations, elimination of protection warnings and downloading 1.0.0 from the public site remain unverified. Models and images have separate redistribution terms.
 Corresponding source and third-party license notices are included in the executable distribution.
