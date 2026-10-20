@@ -29,5 +29,5 @@
     "mask.png": "164164b722fea4522c9527398cb287d9d2a08e44d0970f5b3d1fcbbbe935a01b",
     "normalized.png": "38150e2197de981daaca7645d24547b31c763c26594e18e13123421778d849d8"
   },
-  "note": "Existing v3 output example, not a v3.1 benchmark. Features measured after orientation normalization. Pixel units; not calibrated physical size."
+  "note": "Saved workflow example, not a version 1.0.0 accuracy benchmark. Features measured after orientation normalization. Pixel units; not calibrated physical size."
 }

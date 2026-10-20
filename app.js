@@ -27,6 +27,6 @@ fetch(releaseBase+'release.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Err
     const download=document.querySelector('#download-link');download.href=release.download_url;download.hidden=false;
     const source=document.querySelector('#source-link');source.href=release.source_url;source.hidden=false;
     document.querySelector('#download-pending').hidden=true;
-    document.querySelector('#release-reason').textContent=ja?'公開練習用のセットアップです。':'Setup package for publication practice.';
+    document.querySelector('#release-reason').textContent=ja?'初回リリース 1.0.0 のセットアップです。':'Installer for the initial 1.0.0 release.';
   }
 }).catch(()=>{});
