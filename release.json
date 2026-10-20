@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
-  "published": false,
-  "download_url": null,
-  "source_url": null,
+  "published": true,
+  "download_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/1.0.0/WolffiaVisionStudio-1.0.0-Windows-x64-Setup.exe",
+  "source_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/1.0.0/WolffiaVisionStudio-1.0.0-Source.zip",
   "size_bytes": 1946456892,
   "sha256": "1B64792A518786E9A4CACBD015B683D369EF4690B2DF185C8E64C86872A23860",
-  "verification": "Built and self-tested on the development PC; public upload not performed",
+  "verification": "Built and self-tested on the development PC; GitHub Release assets published; independent clean-PC testing pending",
   "build_date": "2026-10-20"
 }
