@@ -1,10 +1,10 @@
 {
-  "version": "3.1.1-practice",
+  "version": "1.0.0",
   "published": true,
-  "download_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/v3.1.1-practice/WolffiaVisionStudio-3.1.1-Practice-Windows-x64-Setup.exe",
-  "source_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/v3.1.1-practice/WolffiaVisionStudio-3.1.1-Source.zip",
-  "size_bytes": 1946400973,
-  "sha256": "ca997a391147fa04747c256737abb7c916c1ead8a174102e64ceff4aecd7c48b",
-  "verification": "Development-PC EXE self-test passed; clean-PC test pending",
-  "build_date": "2026-10-18"
+  "download_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/v1.0.0/WolffiaVisionStudio-1.0.0-Windows-x64-Setup.exe",
+  "source_url": "https://github.com/wolffiavision-code/wolffia-vision-studio/releases/download/v1.0.0/WolffiaVisionStudio-1.0.0-Source.zip",
+  "size_bytes": 1946479389,
+  "sha256": "D6BB4BCDBC819B5CA68EB9927CB0B1A76623CE734BCC60AF0CC2612803D25AA4",
+  "verification": "Built and self-tested on the development PC; independent PC verification pending",
+  "build_date": "2026-10-19"
 }
