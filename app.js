@@ -8,8 +8,14 @@ document.querySelectorAll('.zoom').forEach(button=>button.addEventListener('clic
 document.querySelector('#close-lightbox').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
 dialog.addEventListener('close',()=>previousFocus?.focus());
-const active=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){nav.querySelectorAll('a[href^="#"]').forEach(a=>{if(a.hash==='#'+entry.target.id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}}},{rootMargin:'-15% 0px -65% 0px'});
-document.querySelectorAll('main section[id]').forEach(section=>active.observe(section));
+// Hash-based page views remain compatible with static GitHub Pages and
+// Cloudflare hosting, while avoiding one very long scrolling document.
+const pageSections=[...document.querySelectorAll('main section[data-page]')];
+const routes=new Set(['home','workflow','interface','adapt','guide','download']);
+const legacy={workflow:'workflow',example:'workflow','annotation-training':'workflow',charts:'workflow',screens:'interface',custom:'adapt',spec:'adapt',guide:'guide','dataset-request':'guide',docs:'guide',about:'guide',download:'download'};
+function currentRoute(){const raw=location.hash.replace(/^#(?:page-)?/,'');return routes.has(raw)?raw:(legacy[raw]||'home')}
+function showRoute(){const route=currentRoute();for(const section of pageSections){const show=section.dataset.page===route;section.classList.toggle('page-hidden',!show);section.classList.toggle('page-enter',show)}nav.querySelectorAll('a[data-route]').forEach(a=>{if(a.dataset.route===route)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});window.scrollTo({top:0,behavior:'instant'})}
+window.addEventListener('hashchange',showRoute);showRoute();
 
 // Release URLs are supplied explicitly when hosting is ready.
 const releaseBase=document.documentElement.lang==='ja'?'':'../';
