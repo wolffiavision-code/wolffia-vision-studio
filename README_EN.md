@@ -1,4 +1,4 @@
-# Wolffia Vision Studio 1.0.0
+# Wolffia Vision Studio 1.0.0 candidate
 
 [日本語](README.md) · [License](LICENSE) · [License guide](LICENSE_EN.md)
 
@@ -7,10 +7,10 @@ By Kento Kuwata / wolffia.vision@gmail.com
 
 ## Install
 
-Download the 1.0.0 setup from GitHub Releases, compare SHA256SUMS.txt, and follow the installer. Python is bundled. Japanese and English shortcuts are included. The website itself does not run inference.
+This build is a provisional 1.0.0 release candidate. The website itself does not run inference. Compare SHA256SUMS.txt when a public package is prepared.
 
 Windows protection warnings
-This 1.0.0 build is unsigned. SmartScreen may show "Windows protected your PC". This warning alone neither proves infection nor guarantees safety.
+This 1.0.0 candidate build is unsigned. SmartScreen may show "Windows protected your PC". This warning alone neither proves infection nor guarantees safety.
 Verify the official download source, filename and published SHA-256. A matching hash verifies integrity, not harmlessness. Scan the download. Only if you trust the source and choose to proceed, use "More info" then "Run anyway".
 Do not run files with a mismatched hash, unknown origin or a detected threat. If organization policy or Smart App Control blocks execution, contact your administrator. Do not disable protection or add antivirus exclusions.
 Publisher-side options include trusted code signing or Microsoft Store distribution. Signing does not guarantee immediate removal of reputation warnings. This package has not been signed.
@@ -19,7 +19,7 @@ Reference: https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/sma
 
 ## Workflow
 
-Select a workspace on HOME, then YOLO or Mask. Click a rectangle to select its list item; double-click an item to change only that rectangle's class. N toggles new annotation; Delete/Backspace removes selection; E toggles mask eraser and H toggles visibility. Review assisted labels before export.
+Select a workspace on HOME, then YOLO or Mask. Press C to advance the class ID assigned to the next newly created rectangle, wrapping from the last class to 0. Change an existing rectangle through the item list. N toggles new annotation; Delete/Backspace removes selection; E toggles mask eraser and H toggles visibility. All-image assistance saves each completed image immediately, so completed drafts remain if processing is stopped. Review assisted labels before export.
 Use preprocessing to split train/val/test. For prepared training input, select the parent containing data.yaml and images/labels or masks. An unsplit annotation export is not a prepared training dataset. Separate input shows four train/validation image and label/mask folders plus class definition data.yaml. Source files are copied.
 Training displays a validation confusion matrix every epoch (GT rows / prediction columns), not a training-set matrix. Matrix rows are normalized to 0–1 and centered with two decimals. Testing shows comparisons, the same matrix format, TP/FP/FN/WC, precision, recall, F1 and error rate. Error rate is `(FP+FN+WC)/(TP+FP+FN+WC)`; processing failures are reported separately. Binary masks count pixels and have WC=0.
 
@@ -47,7 +47,7 @@ default_models/
 
 ```
 
-Crop margin defaults to 0%. For checkpoints inside weights, test output defaults to the enclosing fine-tune folder. Manual output selection remains available. HOME opens a searchable Terms and index window. Clustering settings and expanded chart controls are available in the GUI.
+Crop margin defaults to 0%. For a checkpoint inside weights, test output defaults to the enclosing fine-tune folder. Manual output selection remains available. HOME opens a searchable Terms and index window alongside other work. Clustering thresholds and expanded chart controls (density, ECDF, strip plots, log axes and trend lines) are available in the GUI.
 
-[Dataset form setup](FORM_SETUP_EN.md). The responder URL is configured; the owner must verify publication, response collection and notifications in Google Forms. See the bundled verification record for tested scope. Independent clean-PC testing, all Windows/GPU combinations, elimination of protection warnings and downloading 1.0.0 from the public site remain unverified. Models and images have separate redistribution terms.
+[Dataset form setup](FORM_SETUP_EN.md). The responder URL is configured in the application and website; the owner must verify publication, response collection and notifications in Google Forms. See the bundled verification record for tested scope. Independent clean-PC testing, all Windows/GPU combinations, elimination of protection warnings and downloading 1.0.0 from the public site remain unverified. Models and images have separate redistribution terms.
 Corresponding source and third-party license notices are included in the executable distribution.
